@@ -11,7 +11,7 @@ import com.industriousgnomes.dnd.character.feature.proficiency.SavingThrow;
 
 public class Fighter extends CharacterClass {
 
-    private static final String      CLASS_NAME       = "Fighter";
+    public static final String      CLASS_NAME       = "Fighter";
 
     private Collection<FeatureType> skillLimitations = Arrays.asList(FeatureType.ACROBATICS, FeatureType.ANIMAL_HANDLING, FeatureType.ATHLETICS, FeatureType.HISTORY, FeatureType.INSIGHT, FeatureType.INTIMIDATION, FeatureType.PERCEPTION,
                                                              FeatureType.SURVIVAL);

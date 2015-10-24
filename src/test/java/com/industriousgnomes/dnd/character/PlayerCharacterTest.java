@@ -69,12 +69,12 @@ public class PlayerCharacterTest {
     			);
     	
     	character.setAttributes(abilities);
-    	
+    	// Defaults to human, so +1 to all attributes
     	assertEquals( 4, features.total(FeatureType.STRENGTH_SAVING_THROW));
-    	assertEquals( 2, features.total(FeatureType.DEXTERITY_SAVING_THROW));
+    	assertEquals( 3, features.total(FeatureType.DEXTERITY_SAVING_THROW));
     	assertEquals( 0, features.total(FeatureType.INTELLIGENCE_SAVING_THROW));
     	assertEquals( 0, features.total(FeatureType.WISDOM_SAVING_THROW));
-    	assertEquals(-3, features.total(FeatureType.CONSTITUTION_SAVING_THROW));
+    	assertEquals(-2, features.total(FeatureType.CONSTITUTION_SAVING_THROW));
     	assertEquals( 0, features.total(FeatureType.CHARISMA_SAVING_THROW));
     }
 
@@ -82,10 +82,10 @@ public class PlayerCharacterTest {
     public void checkSkills() {
     	Collection<Pair<FeatureType, Integer>> abilities = Arrays.asList(
     			Pair.of(FeatureType.STRENGTH, 18),
-    			Pair.of(FeatureType.DEXTERITY, 15),
-    			Pair.of(FeatureType.WISDOM, 5)
+    			Pair.of(FeatureType.DEXTERITY, 14),
+    			Pair.of(FeatureType.WISDOM, 4)
     			);
-    	
+    	// Defaults to human so +1 to all attributes
     	character.setAttributes(abilities);
     	assertEquals( 2, features.total(FeatureType.ACROBATICS));
     	assertEquals(-3, features.total(FeatureType.ANIMAL_HANDLING));

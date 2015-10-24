@@ -41,9 +41,9 @@ public class CharacterCompTest {
 	
 	@Test
 	public void testSavingThrows_Lvl1_Fighter() {
-    	character.setAttributes(createAttributes(18, 15, null, null, 5, null));
+    	character.setAttributes(createAttributes(18, 14, null, null, 4, null));
     	character.setCharacterClass(new Fighter(character));
-    
+    	// Race defaults to human so +1 to all attributes
     	assertEquals( 6, character.getFeatures().total(FeatureType.STRENGTH_SAVING_THROW));
     	assertEquals( 2, character.getFeatures().total(FeatureType.DEXTERITY_SAVING_THROW));
     	assertEquals( 0, character.getFeatures().total(FeatureType.INTELLIGENCE_SAVING_THROW));
@@ -56,9 +56,9 @@ public class CharacterCompTest {
 	@Test
 	public void testSavingThrows_Lvl5_Fighter() {
 		character.setExperiencePoints(7000);
-    	character.setAttributes(createAttributes(18, 15, null, null, 15, null));
+    	character.setAttributes(createAttributes(18, 14, null, null, 14, null));
     	character.setCharacterClass(new Fighter(character));
-    
+        // Race defaults to human so +1 to all attributes
     	assertEquals( 7, character.getFeatures().total(FeatureType.STRENGTH_SAVING_THROW));
     	assertEquals( 2, character.getFeatures().total(FeatureType.DEXTERITY_SAVING_THROW));
     	assertEquals( 0, character.getFeatures().total(FeatureType.INTELLIGENCE_SAVING_THROW));
