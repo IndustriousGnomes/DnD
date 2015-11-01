@@ -1,4 +1,4 @@
-package com.industriousgnomes.dnd.combat;
+package com.industriousgnomes.dnd.effect;
 
 public enum HitResult {
     MISS(0), HIT(1), CRITICAL(2);

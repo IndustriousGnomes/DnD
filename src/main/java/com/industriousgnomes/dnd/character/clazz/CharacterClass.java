@@ -1,5 +1,6 @@
 package com.industriousgnomes.dnd.character.clazz;
 
+import com.industriousgnomes.dnd.Dice;
 import com.industriousgnomes.dnd.character.PlayerCharacter;
 import com.industriousgnomes.dnd.character.Source;
 import com.industriousgnomes.dnd.character.feature.Feature;
@@ -11,7 +12,7 @@ import com.industriousgnomes.dnd.character.feature.proficiency.SavingThrow;
 public abstract class CharacterClass {
 
     protected PlayerCharacter character;
-    private int               hitDieSides;
+    private Dice              hitDie;
     Features                  features;
 
     public CharacterClass(PlayerCharacter character) {
@@ -26,14 +27,14 @@ public abstract class CharacterClass {
         features.add(feature);
     }
 
-    public int getHitDiceSides() {
-        return hitDieSides;
+    public Dice getHitDie() {
+        return hitDie;
     }
 
-    protected void setHitDiceSides(int hitDiceSides) {
-        this.hitDieSides = hitDiceSides;
+    protected void setHitDie(Dice hitDie) {
+        this.hitDie = hitDie;
         features.remove(FeatureType.HIT_DIE);
-        features.add(new InitialHitDie(character, hitDiceSides));
+        features.add(new InitialHitDie(character, hitDie));
     }
 
     public void addSkill(FeatureType skill) {

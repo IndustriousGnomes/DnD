@@ -2,16 +2,21 @@ package com.industriousgnomes.dnd.limitation.builder;
 
 
 public enum GamePiece {
-    WORLD(), 
-    ATTACKER (),
-    DEFENDER(),
+    WORLD, 
+    ATTACKER,
+    DEFENDER,
     
-    CHARACTER_CLASS(), 
-    CHARACTER_RACE(),
+    CHARACTER_CLASS, 
+    CHARACTER_RACE,
+    
+    NAME,
+    RACE,
+    GENDER,
 
+    // ?
+    WEAPON_TYPE,    // Ranged, Melee    - what about simple vs martial
     
-    NAME(),
-    RACE(),
-    GENDER();
-    
+    // Function Identifier
+    RANGE
+    ;
 }

@@ -42,7 +42,7 @@ public class LimitationEngineTest {
         Pair<GamePiece, Object> limit = 
                 add(GamePiece.ATTACKER, add(GamePiece.CHARACTER_CLASS, add(GamePiece.NAME, "Fighter")));
         
-        assertTrue(LimitationEngine.execute(limit, mockedAttacker, mockedDefender));
+        assertTrue(LimitationEngine.execute(null, limit));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class LimitationEngineTest {
         Pair<GamePiece, Object> limit =
                 add(GamePiece.ATTACKER, add(GamePiece.CHARACTER_RACE, add(GamePiece.RACE, "Elf")));
 
-        assertTrue(LimitationEngine.execute(limit, mockedAttacker, mockedDefender));
+        assertTrue(LimitationEngine.execute(null, limit));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class LimitationEngineTest {
         Pair<GamePiece, Object> limit =
                 add(GamePiece.ATTACKER, add(GamePiece.CHARACTER_RACE, and(add(GamePiece.RACE, "Elf"), add(GamePiece.GENDER, Gender.FEMALE))));
         
-        assertTrue(LimitationEngine.execute(limit, mockedAttacker, mockedDefender));
+        assertTrue(LimitationEngine.execute(null, limit));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class LimitationEngineTest {
         Pair<GamePiece, Object> limit =
                 add(GamePiece.ATTACKER, add(GamePiece.CHARACTER_RACE, and(add(GamePiece.RACE, or("Elf", "Human")), add(GamePiece.GENDER, Gender.FEMALE))));
         
-        assertTrue(LimitationEngine.execute(limit, mockedAttacker, mockedDefender));
+        assertTrue(LimitationEngine.execute(null, limit));
     }
 
     @Test
@@ -100,7 +100,7 @@ public class LimitationEngineTest {
                 add(GamePiece.ATTACKER, or(add(GamePiece.CHARACTER_RACE, and(add(GamePiece.RACE, "Elf"), add(GamePiece.GENDER, Gender.FEMALE))),
                                            add(GamePiece.CHARACTER_CLASS, add(GamePiece.NAME, "Fighter"))));
         
-        assertTrue(LimitationEngine.execute(limit, mockedAttacker, mockedDefender));
+        assertTrue(LimitationEngine.execute(null, limit));
     }
 
     @Test
@@ -124,7 +124,7 @@ public class LimitationEngineTest {
                     add(GamePiece.DEFENDER, add(GamePiece.CHARACTER_RACE, and(add(GamePiece.RACE, "Dwarf"), add(GamePiece.GENDER, Gender.MALE))))
                    ));
         
-        assertTrue(LimitationEngine.execute(limit, mockedAttacker, mockedDefender));
+        assertTrue(LimitationEngine.execute(null, limit));
     }
 
     @Test
@@ -148,7 +148,7 @@ public class LimitationEngineTest {
                     add(GamePiece.DEFENDER, add(GamePiece.CHARACTER_RACE, and(add(GamePiece.RACE, "Dwarf"), add(GamePiece.GENDER, Gender.MALE))))
                    ));
         
-        assertTrue(LimitationEngine.execute(limit, mockedAttacker, mockedDefender));
+        assertTrue(LimitationEngine.execute(null, limit));
     }
 
 }

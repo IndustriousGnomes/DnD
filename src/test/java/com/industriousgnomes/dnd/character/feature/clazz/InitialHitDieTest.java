@@ -1,5 +1,6 @@
 package com.industriousgnomes.dnd.character.feature.clazz;
 
+import static com.industriousgnomes.dnd.Dice.D10;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import mockit.Expectations;
@@ -25,10 +26,11 @@ public class InitialHitDieTest {
 	@Before
 	public void setUp() {
 		new Expectations() {{
-			Dice.roll(anyInt); result = 6;
+		    D10.roll(); result = 6;
+		    D10.sides(); result = 10;
 		}};
 		
-		hitDie = new InitialHitDie(mockedCharacter, 10);
+		hitDie = new InitialHitDie(mockedCharacter, D10);
 	}
 	
 	@Test

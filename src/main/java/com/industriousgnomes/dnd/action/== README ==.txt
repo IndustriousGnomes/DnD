@@ -1,0 +1,9 @@
+AttackWithItem
+DodgeAMagicalAttack
+DodgeAPhysicalAttack
+EngageInCombat
+EquipAnItem
+FallDown
+GetUp
+Initiative
+RemoveAnItem

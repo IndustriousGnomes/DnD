@@ -1,5 +1,6 @@
 package com.industriousgnomes.dnd.character.clazz;
 
+import static com.industriousgnomes.dnd.Dice.D10;
 import mockit.Mocked;
 import mockit.Verifications;
 import mockit.integration.junit4.JMockit;
@@ -47,7 +48,7 @@ public class CharacterClassTest {
 	
 	@Test
 	public void checkFeaturesSetByHitDiceSides_NewCharacter() {
-		characterClass.setHitDiceSides(10);
+		characterClass.setHitDie(D10);
 		
 		new Verifications() {{
 			features.remove(FeatureType.HIT_DIE);

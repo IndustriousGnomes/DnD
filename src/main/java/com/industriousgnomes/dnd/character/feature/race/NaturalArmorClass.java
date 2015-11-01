@@ -1,9 +1,12 @@
 package com.industriousgnomes.dnd.character.feature.race;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import com.industriousgnomes.dnd.character.PlayerCharacter;
 import com.industriousgnomes.dnd.character.Source;
 import com.industriousgnomes.dnd.character.feature.Feature;
 import com.industriousgnomes.dnd.character.feature.FeatureType;
+import com.industriousgnomes.dnd.limitation.builder.GamePiece;
 
 public class NaturalArmorClass implements Feature {
 
@@ -23,6 +26,11 @@ public class NaturalArmorClass implements Feature {
     @Override
     public Boolean isRelevant(FeatureType featureType) {
         return (FeatureType.ARMOR_CLASS == featureType) || (FeatureType.NATURAL_ARMOR_CLASS == featureType);
+    }
+
+    @Override
+    public Pair<GamePiece, Object> getLimitations() {
+        return null;
     }
 
     @Override

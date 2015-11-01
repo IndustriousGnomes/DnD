@@ -9,15 +9,18 @@ import java.util.LinkedList;
 
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
+import mockit.integration.junit4.JMockit;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import com.industriousgnomes.dnd.character.PlayerCharacter;
 import com.industriousgnomes.dnd.character.Source;
 import com.industriousgnomes.dnd.character.feature.proficiency.Equipment;
 import com.industriousgnomes.dnd.character.feature.proficiency.Skill;
 
+@RunWith(JMockit.class)
 public class FeaturesTest {
 
 	@Mocked PlayerCharacter mockCharacter;
@@ -138,4 +141,5 @@ public class FeaturesTest {
 		
 		assertEquals(0, features.getAll(Source.SKILL).size());
 	}
+	// TODO test how not to have the same feature counted twice if going for multiple features
 }

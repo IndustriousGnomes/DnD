@@ -1,21 +1,24 @@
 package com.industriousgnomes.dnd.character.feature.clazz;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import com.industriousgnomes.dnd.Dice;
 import com.industriousgnomes.dnd.character.PlayerCharacter;
 import com.industriousgnomes.dnd.character.Source;
 import com.industriousgnomes.dnd.character.feature.Feature;
 import com.industriousgnomes.dnd.character.feature.FeatureType;
+import com.industriousgnomes.dnd.limitation.builder.GamePiece;
 
 public class HitDie implements Feature {
 
     protected PlayerCharacter character;
-    protected Integer         hitDieSides;
+    protected Dice            hitDie;
     protected Integer         hitPoints;
 
-    public HitDie(PlayerCharacter character, Integer hitDieSides) {
+    public HitDie(PlayerCharacter character, Dice hitDie) {
         this.character = character;
-        this.hitDieSides = hitDieSides;
-        hitPoints = Dice.roll(hitDieSides);
+        this.hitDie = hitDie;
+        hitPoints = this.hitDie.roll();
     }
 
     @Override
@@ -26,6 +29,11 @@ public class HitDie implements Feature {
     @Override
     public Boolean isRelevant(FeatureType featureType) {
         return (FeatureType.HIT_DIE == featureType) || (FeatureType.HIT_POINTS == featureType);
+    }
+
+    @Override
+    public Pair<GamePiece, Object> getLimitations() {
+        return null;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.industriousgnomes.dnd.character.clazz;
 
+import static com.industriousgnomes.dnd.Dice.D10;
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -18,7 +20,7 @@ public class Fighter extends CharacterClass {
 
     public Fighter(PlayerCharacter character) {
         super(character);
-        setHitDiceSides(10);
+        setHitDie(D10);
 
         // Armor
         addFeature(new Equipment(character, Source.CHARACTER_CLASS, FeatureType.ARMOR, FeatureType.LIGHT_ARMOR));

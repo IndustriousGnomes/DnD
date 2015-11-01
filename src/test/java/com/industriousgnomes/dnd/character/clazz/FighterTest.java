@@ -1,16 +1,19 @@
 package com.industriousgnomes.dnd.character.clazz;
 
+import static com.industriousgnomes.dnd.Dice.D10;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import mockit.Expectations;
 import mockit.Mocked;
+import mockit.NonStrictExpectations;
 import mockit.integration.junit4.JMockit;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.industriousgnomes.dnd.Dice;
 import com.industriousgnomes.dnd.character.PlayerCharacter;
 import com.industriousgnomes.dnd.character.feature.FeatureType;
 import com.industriousgnomes.dnd.character.feature.Features;
@@ -18,13 +21,15 @@ import com.industriousgnomes.dnd.character.feature.Features;
 @RunWith(JMockit.class)
 public class FighterTest {
 
+    @Mocked Dice mockDice;
     @Mocked PlayerCharacter mockCharacter;
     CharacterClass fighter;
     Features features = new Features();
 
 	@Before
 	public void setUp() {
-		new Expectations() {{
+		new NonStrictExpectations() {{
+		    D10.roll(); result = 5; // Hit dice
 			mockCharacter.getFeatures(); result = features;
 		}};
 		fighter = new Fighter(mockCharacter);
@@ -32,7 +37,7 @@ public class FighterTest {
 	
 	@Test
 	public void checkHitDieSides() {		
-		assertEquals(10, fighter.getHitDiceSides());
+		assertEquals(D10, fighter.getHitDie());
 	}
 	
 	@Test

@@ -23,7 +23,7 @@ public class AbilityModifierTest {
 					30);
 		}};
 		
-		AbilityModifier strength = new AbilityModifier(mockCharacter, FeatureType.STRENGTH_ABILITY_MODIFIER, FeatureType.STRENGTH);
+		BaseAbilityModifier strength = new BaseAbilityModifier(mockCharacter, FeatureType.STRENGTH_ABILITY_MODIFIER, FeatureType.STRENGTH);
 	
 		for (int mod = 0; mod <= 30; mod++) {
 			assertEquals("Mod " + mod, (int)Math.floor((mod - 10.0) / 2.0), strength.execute(FeatureType.STRENGTH_ABILITY_MODIFIER));

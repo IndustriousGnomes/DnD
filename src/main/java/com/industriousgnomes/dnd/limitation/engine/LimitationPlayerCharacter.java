@@ -6,11 +6,12 @@ import java.util.Collection;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.industriousgnomes.dnd.character.PlayerCharacter;
+import com.industriousgnomes.dnd.item.WeaponType;
 import com.industriousgnomes.dnd.limitation.builder.GamePiece;
 
 public class LimitationPlayerCharacter {
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public static Boolean execute(Pair<GamePiece, Object> limitation, PlayerCharacter character) {
         GamePiece key = limitation.getKey();
         
@@ -24,7 +25,7 @@ public class LimitationPlayerCharacter {
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "incomplete-switch" })
     private static Boolean process(GamePiece key, Object value, PlayerCharacter character) {
         
         switch (key) {
@@ -33,6 +34,9 @@ public class LimitationPlayerCharacter {
             
             case CHARACTER_RACE: 
                 return LimitationCharacterRace.execute((Pair<GamePiece, Object>)value, character.getCharacterRace());
+
+            case WEAPON_TYPE: 
+                return WeaponType.RANGED == value; // TODO implement after items are implemented
         }
         
         return false;

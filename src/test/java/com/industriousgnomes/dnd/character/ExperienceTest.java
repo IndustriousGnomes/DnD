@@ -3,9 +3,12 @@ package com.industriousgnomes.dnd.character;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import mockit.integration.junit4.JMockit;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(JMockit.class)
 public class ExperienceTest {
 
 	private Experience exp = new Experience();
